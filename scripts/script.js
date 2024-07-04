@@ -122,7 +122,8 @@ function checkWord () {
             $squareToVerify.classList.add('filled')
 
             if (doesLetterExists) {
-                let indexOfLetter = selectedWordToArray.indexOf(letter)
+                let indexOfLetter = selectedWordToArray.indexOf(letter, index)
+                console.log(indexOfLetter)
 
                 if (index === indexOfLetter) {
                     $squareToVerify.classList.add('correct')

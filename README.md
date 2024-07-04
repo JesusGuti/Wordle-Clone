@@ -18,9 +18,9 @@ This project is a wordle clone made without dependencies (Only HTML, CSS, Vanill
 - Animation when a letter is written ✅
 - Animation when the word is completed ✅
 - Animation when the word is correct ✅
-- Fix method, when a letter is repeated in a word
+- Fix method, when a letter is repeated in a word ✅
 - Show correct word when game finished ✅
-- Add alert when there are not enough letters
+- Add alert when there are not enough letters ✅
 - Add Win event
 - Add game over event
 - Add definition of the word modal
