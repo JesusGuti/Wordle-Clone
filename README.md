@@ -1,5 +1,6 @@
 # WORDLE CLONE 
 This project is a wordle clone made without dependencies (Only HTML, CSS, Vanilla JS).
+![Wordle clone preview](assets/image.png)
 
 ## Skills worked in this project
 
