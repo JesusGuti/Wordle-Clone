@@ -164,10 +164,9 @@ main {
     border: none !important;
 }
 
-.word {
+.word, .not-enough, .not-list {
     display: none;
     position: fixed;
-    top: 20vh;
     border-radius: 4px;
     background: var(--white);
     color: var(--black);
@@ -175,4 +174,12 @@ main {
     height: fit-content;
     padding: 10px;
     z-index: 2;
+}
+
+.word {
+    top: 20vh;
+}
+
+.not-enough, .not-list {
+    top: 15vh;
 }

@@ -1,5 +1,9 @@
 import { keyboardRows } from './keyboard.js'
 import { words } from './words.js'
+import {
+    showNotEnoughLettersAlert,
+    showWordAlert,
+} from './alerts.js'
 
 const $matrix = document.getElementById('matrix')
 const $keyboard = document.getElementById('keyboard')
@@ -71,7 +75,7 @@ function writeLetter (event) {
         if (word.length === selectedWord.length) {
             checkWord()        
         } else {
-            alert('Faltan letras')
+            showNotEnoughLettersAlert()
         }
     } else if (word.length < selectedWord.length) {
         if (keyCode >= 65 && keyCode <= 90) {
@@ -93,7 +97,7 @@ function clickLetter (target) {
         if (word.length === selectedWord.length) {
             checkWord()        
         } else {
-            alert('Faltan letras')
+            showNotEnoughLettersAlert()
         }
     } else if (word.length < selectedWord.length) {
         $actualSquare.innerText = key.toUpperCase()
@@ -119,7 +123,6 @@ function checkWord () {
 
             if (doesLetterExists) {
                 let indexOfLetter = selectedWordToArray.indexOf(letter)
-                console.log(indexOfLetter)
 
                 if (index === indexOfLetter) {
                     $squareToVerify.classList.add('correct')
@@ -195,16 +198,9 @@ function animationToShowIfCorrectWord () {
     }
 }
 
-function showWordAlert () {
-    const $wordToShow = document.getElementById('word-display')
-    console.log($wordToShow)
-    $wordToShow.style.display = 'initial'
-    $wordToShow.innerText = selectedWord.toUpperCase()
-}
-
 function finalizeGame () {
     animationToShowIfCorrectWord()
-    showWordAlert()
+    showWordAlert(selectedWord)
 }
 
 function gameOver () {
