@@ -1,0 +1,178 @@
+:root {
+    --black: #121213;
+    --gray: #3a3a3c;
+    --green: #538d4e;
+    --yellow: #e4a81d;
+    --light-gray: #818384;
+    --white: #ffffff;
+    --soft-blue: #92dff0;
+}
+
+body {
+    background: var(--black);
+    color: #fff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+header {
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--gray);
+    text-align: center;
+    & h1 {
+        margin-left: 20px;
+    }
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+/* This is when a letter is active */
+@keyframes pulse {
+    0% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* This is for flipping a letter */
+@keyframes rotate {
+    0% {
+        transform: rotateX(0)
+    }
+
+    45% {
+        transform: rotateX(90deg)
+    }
+
+    55% {
+        transform: rotateX(90deg)
+    }
+
+    100% {
+        transform: rotateX(0)
+    }
+}
+
+@keyframes up-down {
+    0% {
+        transform: translateY(20px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.matrix {
+    display: grid;
+    place-items: center;
+    gap: 5px;
+
+    & .row {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 5px;  
+        
+        & .square {
+            display: flex;
+            width: 60px;
+            height: 60px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            border: 0.5px solid var(--gray);
+            font-size: 1.75em;
+        }
+
+        & .active {
+            border: 1px solid var(--soft-blue) !important;
+            animation: pulse 0.2s ease-in;   
+        }
+
+        & .filled {
+            animation: rotate 1.5s ease forwards;
+        }
+
+        & .completed {
+            animation: up-down 1.5s ease forwards;
+        }
+    }
+}
+
+.keyboard {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 5px;
+
+    & .keyboard-row {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+        justify-content: center; 
+        
+        & .key {
+            width: 45px;
+            height: 55px;
+            font-size: 1.2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--light-gray);
+            border-radius: 5px;
+            cursor: pointer;
+            
+            &:hover {
+                background-color: var(--soft-blue);
+            }
+        } 
+
+        & .special {
+            width: auto;
+            padding: 0 10px;
+        }
+
+        & .delete {
+            background-image: url(./icons/delete-left-solid.svg);
+            background-size: 30px;
+            color: transparent;
+            background-repeat: no-repeat;
+            background-position: 10px;
+        }
+    }
+}
+
+.correct {
+    background-color: var(--green) !important;
+    border: none !important;
+}
+
+.incorrect {
+    background-color: var(--yellow) !important;
+    border: none !important;
+}
+
+.lack {
+    background-color: var(--gray) !important;
+    border: none !important;
+}
+
+.word {
+    display: none;
+    position: fixed;
+    top: 20vh;
+    border-radius: 4px;
+    background: var(--white);
+    color: var(--black);
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+    z-index: 2;
+}
