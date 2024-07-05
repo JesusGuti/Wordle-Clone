@@ -1,3 +1,5 @@
+@import url(https://db.onlinewebfonts.com/c/4789cf828c01b22acb9b2b73ee91aa0d?family=NYTKarnakCondensed);
+
 :root {
     --black: #121213;
     --gray: #3a3a3c;
@@ -19,6 +21,7 @@ header {
     border-bottom: 1px solid var(--gray);
     text-align: center;
     & h1 {
+        font-family: "NYTKarnakCondensed";
         margin-left: 20px;
     }
 }
@@ -182,4 +185,32 @@ main {
 
 .not-enough, .not-list {
     top: 15vh;
+}
+
+.distribution-information-modal {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+
+    & .information-row {
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+
+        & .information {
+            width: 25%;
+            text-align: center;
+
+            & .value {
+                font-size: 3em;
+                margin: 0;
+            }
+
+            & .information-text {
+                font-size: 0.80em;
+            }
+        }
+    }
 }
