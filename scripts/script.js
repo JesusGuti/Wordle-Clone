@@ -123,7 +123,6 @@ function checkWord () {
 
             if (doesLetterExists) {
                 let indexOfLetter = selectedWordToArray.indexOf(letter, index)
-                console.log(indexOfLetter)
 
                 if (index === indexOfLetter) {
                     $squareToVerify.classList.add('correct')
