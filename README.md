@@ -24,4 +24,4 @@ This project is a wordle clone made without dependencies (Only HTML, CSS, Vanill
 - Add alert when there are not enough letters ✅
 - Add Win event
 - Add game over event
-- Add definition of the word modal
+- Add definition of the word modal ✅

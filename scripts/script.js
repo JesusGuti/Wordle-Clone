@@ -3,6 +3,7 @@ import { words } from './words.js'
 import {
     showNotEnoughLettersAlert,
     showWordAlert,
+    showWordNotInTheListAlert
 } from './alerts.js'
 
 // DOM elements
@@ -82,7 +83,15 @@ function writeLetter (event) {
         word = word.slice(0,actualSquareIndex)
     } else if (key === 'Enter') {
         if (word.length === selectedWord.length) {
-            checkWord()        
+            let doesWordExists = words.some((selected) => {
+                return selected.word === word 
+            })
+
+            if (doesWordExists) {
+                checkWord()
+            } else {
+                showWordNotInTheListAlert()
+            }     
         } else {
             showNotEnoughLettersAlert()
         }
@@ -104,7 +113,15 @@ function clickLetter (target) {
         word = word.slice(0,actualSquareIndex)
     } else if (key === 'ENTER') {
         if (word.length === selectedWord.length) {
-            checkWord()        
+            let doesWordExists = words.some((selected) => {
+                return selected.word === word 
+            })
+
+            if (doesWordExists) {
+                checkWord()
+            } else {
+                showWordNotInTheListAlert()
+            }       
         } else {
             showNotEnoughLettersAlert()
         }
