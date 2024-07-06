@@ -209,7 +209,7 @@ main {
     top: 0;
     flex-direction: column;
     align-items: center;
-    display: none;
+    display: flex;
     position: fixed;
     z-index: 3;
     padding-top: 50px;
@@ -223,6 +223,19 @@ main {
         height: 30px;
         color: var(--white);
         border: none;
+    }
+
+    & dl {
+        max-width: 80%;
+    }
+
+    & .term {
+        font-size: 1.25em;
+    }
+
+    & .definition {
+        text-wrap: pretty;
+        text-align: justify;
     }
 
     & .information-row {

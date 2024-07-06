@@ -5,23 +5,28 @@ import {
     showWordAlert,
 } from './alerts.js'
 
+// DOM elements
 const $matrix = document.getElementById('matrix')
 const $keyboard = document.getElementById('keyboard')
 const $statisticsButton = document.getElementById('statistics-button')
 const $statisticsInformationModal = document.getElementById('statistics-information-modal')
 const $closeButton = document.getElementById('close-button')
 
+// GAME variables
 const delayToAnimate = 500
 let $actualSquare = null
 let actualRowIndex = 0
 let actualSquareIndex = 0
 let word = ""
 let selectedWord = null
+let selectedWordDefinition = null
+let isGameFinished = false
 
 function getRandomWord () {
     const sizeOfWordsArray = words.length
     const randomIndex = Math.floor(Math.random() * sizeOfWordsArray)
-    selectedWord = words[randomIndex]
+    selectedWord = words[randomIndex].word
+    selectedWordDefinition = words[randomIndex].definition
 }
 
 function drawRows (numberOfRows) {
@@ -182,11 +187,12 @@ function goBack () {
 
 function setSquare () {
     const wordLength = selectedWord.length
+    
     if (actualRowIndex < wordLength + 1 && actualSquareIndex < wordLength ) {
         $actualSquare = document.getElementById(`square-${actualRowIndex}-${actualSquareIndex}`)
         $actualSquare.focus()
         $actualSquare.classList.add('active')
-    } else {
+    } else if (actualRowIndex > wordLength) {
         gameOver()
     }
 }
@@ -205,14 +211,23 @@ function animationToShowIfCorrectWord () {
 function finalizeGame () {
     animationToShowIfCorrectWord()
     showWordAlert(selectedWord)
+    isGameFinished = true
 }
 
 function gameOver () {
-
+    showWordAlert(selectedWord)
+    isGameFinished = true
+    showInformationModal()
 }
 
 function showInformationModal () {
     $statisticsInformationModal.style.display = 'flex'
+    if (isGameFinished) {
+        const $term = document.getElementById('term')
+        const $definition = document.getElementById('definition')
+        $term.innerText = selectedWord
+        $definition.innerText = selectedWordDefinition
+    }   
 }
 
 function closeInformationModal () {

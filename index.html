@@ -25,8 +25,14 @@
     <section id="statistics-information-modal" class="distribution-information-modal">
         <button id="close-button" class="close-button"></button>
         <img src='./assets/wordle-icon.svg' alt="wordle icon"/>
-        <p>Wordle</p>
-        <p>STATISTICS</p>
+        <h3>Wordle</h3>
+        
+        <dl>
+            <dt class="term" id="term"></dt>
+            <dd class="definition" id="definition"></dd>
+        </dl>
+        
+        <h4>STATISTICS</h4>
         <div class="information-row">
             <div class="information">
                 <p class="value">4</p>
@@ -45,7 +51,8 @@
                 <p class="information-text">Max Streak</p>
             </div>
         </div>
-        <p>GUESS DISTRIBUTION</p>
+
+        <h4>GUESS DISTRIBUTION</p>
     </section>
     <script type="module" src="./scripts/script.js"></script>
 </body>
