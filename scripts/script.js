@@ -7,6 +7,10 @@ import {
 
 const $matrix = document.getElementById('matrix')
 const $keyboard = document.getElementById('keyboard')
+const $statisticsButton = document.getElementById('statistics-button')
+const $statisticsInformationModal = document.getElementById('statistics-information-modal')
+const $closeButton = document.getElementById('close-button')
+
 const delayToAnimate = 500
 let $actualSquare = null
 let actualRowIndex = 0
@@ -207,6 +211,14 @@ function gameOver () {
 
 }
 
+function showInformationModal () {
+    $statisticsInformationModal.style.display = 'flex'
+}
+
+function closeInformationModal () {
+    $statisticsInformationModal.style.display = 'none'
+}
+
 function initEvents () {
     document.addEventListener('keydown', (event) => {
         writeLetter(event)
@@ -217,6 +229,14 @@ function initEvents () {
         key.addEventListener('click', (event) => {
             clickLetter(event.target)
         })
+    })
+
+    $statisticsButton.addEventListener('click', () => {
+        showInformationModal();
+    })
+
+    $closeButton.addEventListener('click', () => {
+        closeInformationModal()
     })
 }
 
