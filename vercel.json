@@ -4,6 +4,10 @@
       { "src": "index.html", "use": "@vercel/static" }
     ],
     "routes": [
+      { "src": "/assets/(.*)", "dest": "/assets/$1" },
+      { "src": "/icons/(.*)", "dest": "/icons/$1" },
+      { "src": "/scripts/(.*)", "dest": "/scripts/$1" },
       { "src": "/(.*)", "dest": "index.html" }
     ]
   }
+  
