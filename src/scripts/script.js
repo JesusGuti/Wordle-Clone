@@ -5,6 +5,10 @@ import {
     showWordAlert,
     showWordNotInTheListAlert
 } from './alerts.js'
+import {
+    getRandomWordFromApi,
+    getDefinitionOfRandomWord
+} from './fetchWord.js'
 
 // DOM elements
 const $matrix = document.getElementById('matrix')
@@ -23,11 +27,13 @@ let selectedWord = null
 let selectedWordDefinition = null
 let isGameFinished = false
 
-function getRandomWord () {
-    const sizeOfWordsArray = words.length
-    const randomIndex = Math.floor(Math.random() * sizeOfWordsArray)
-    selectedWord = words[randomIndex].word
-    selectedWordDefinition = words[randomIndex].definition
+async function getRandomWord () {
+    selectedWord = await getRandomWordFromApi()
+    selectedWordDefinition = await getDefinitionOfRandomWord(selectedWord)
+   
+    if (!selectedWordDefinition) {
+        getRandomWord()
+    }
 }
 
 function drawRows (numberOfRows) {
@@ -83,9 +89,7 @@ function writeLetter (event) {
         word = word.slice(0,actualSquareIndex)
     } else if (key === 'Enter') {
         if (word.length === selectedWord.length) {
-            let doesWordExists = words.some((selected) => {
-                return selected.word === word 
-            })
+            let doesWordExists = words.includes(word)
 
             if (doesWordExists) {
                 checkWord()
@@ -273,7 +277,11 @@ function initEvents () {
     })
 }
 
-getRandomWord()
-drawRows(5)
-drawKeyboard()
-initEvents()
+async function startGame () {
+    await getRandomWord()
+    drawRows(5)
+    drawKeyboard()
+    initEvents()
+}
+
+startGame()
