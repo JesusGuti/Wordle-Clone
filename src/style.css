@@ -46,7 +46,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
 }
 
 /* This is when a letter is active */
@@ -100,8 +100,8 @@ main {
         
         & .square {
             display: flex;
-            width: 60px;
-            height: 60px;
+            width: 8vw;
+            height: 8.5vh;
             justify-content: center;
             align-items: center;
             border-radius: 5px;
@@ -137,8 +137,8 @@ main {
         justify-content: center; 
         
         & .key {
-            width: 45px;
-            height: 55px;
+            width: 7vw;
+            height: 8vh;
             font-size: 1.2rem;
             display: flex;
             justify-content: center;
