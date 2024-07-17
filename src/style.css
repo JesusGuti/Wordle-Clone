@@ -100,13 +100,20 @@ main {
         
         & .square {
             display: flex;
-            width: 8vw;
-            height: 8.5vh;
+            width: 60px;
+            height: 60px;
             justify-content: center;
             align-items: center;
             border-radius: 5px;
             border: 0.5px solid var(--gray);
             font-size: 1.75em;
+        }
+
+        @media (max-width: 768px) {
+            & .square {
+                width: 8vw;
+                height: 8.5vh;
+            }
         }
 
         & .active {
@@ -137,8 +144,8 @@ main {
         justify-content: center; 
         
         & .key {
-            width: 7vw;
-            height: 8vh;
+            width: 45px;
+            height: 55px;
             font-size: 1.2rem;
             display: flex;
             justify-content: center;
@@ -151,6 +158,13 @@ main {
                 background-color: var(--soft-blue);
             }
         } 
+
+        @media (max-width: 768px) {
+            & .key {
+                width: 7vw;
+                height: 8vh;
+            }
+        }
 
         & .special {
             width: auto;

@@ -187,7 +187,7 @@ export const words  = [
     { word: "sabor", definition: "Sensación que produce un alimento en el sentido del gusto." },
     { word: "sacar", definition: "Extraer algo de un lugar." },
     { word: "senda", definition: "Camino estrecho." },
-    { word: "senal", definition: "Indicio que da a conocer algo." },
+    { word: "señal", definition: "Indicio que da a conocer algo." },
     { word: "serie", definition: "Conjunto de elementos que siguen un orden." },
     { word: "seria", definition: "Importante o de cuidado." },
     { word: "silba", definition: "Emitir un sonido agudo soplando (él/ella)." },

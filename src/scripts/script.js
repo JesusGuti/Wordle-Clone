@@ -229,6 +229,7 @@ function finalizeGame () {
     animationToShowIfCorrectWord()
     showWordAlert(selectedWord)
     isGameFinished = true
+    showInformationModal()
 }
 
 function gameOver () {
@@ -242,7 +243,7 @@ function showInformationModal () {
     if (isGameFinished) {
         const $term = document.getElementById('term')
         const $definition = document.getElementById('definition')
-        $term.innerText = selectedWord
+        $term.innerText = selectedWord.toUpperCase()
         $definition.innerText = selectedWordDefinition
     }   
 }
