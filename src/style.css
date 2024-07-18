@@ -28,16 +28,33 @@ header {
         margin-left: 20px;
     }
 
-    & .statistics-button {
+    & div {
+        display: flex;
+        right: -20vw;
         position: relative;
-        width: 30px;
-        height: 30px;
-        background-image: url('./icons/chart-bar-solid.svg');
-        background-repeat: no-repeat;
-        background-color: transparent;
-        border: none;
-        margin-top: 25px;
-        right: -30vw;
+        gap: 10px;
+
+        & .statistics-button {
+            /* position: relative; */
+            width: 30px;
+            height: 30px;
+            background-image: url('./icons/chart-bar-solid.svg');
+            background-repeat: no-repeat;
+            background-color: transparent;
+            border: none;
+            margin-top: 25px;
+        }
+        
+        & .reset-button {
+            /* position: relative; */
+            width: 30px;
+            height: 30px;
+            background-image: url('./icons/redo-solid.svg');
+            background-repeat: no-repeat;
+            background-color: transparent;
+            border: none;
+            margin-top: 25px;
+        }
     }
 }
 

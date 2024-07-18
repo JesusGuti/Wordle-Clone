@@ -16,6 +16,7 @@ const $keyboard = document.getElementById('keyboard')
 const $statisticsButton = document.getElementById('statistics-button')
 const $statisticsInformationModal = document.getElementById('statistics-information-modal')
 const $closeButton = document.getElementById('close-button')
+const $resetButton = document.getElementById('reset-button')
 
 // GAME variables
 const delayToAnimate = 500
@@ -147,7 +148,7 @@ function checkWord () {
             let doesLetterExists = selectedWordToArray.includes(letter)
             let $squareToVerify = document.getElementById(`square-${actualRow}-${index}`)
             let $keyLetter = document.getElementById(`key-${letter.toUpperCase()}`)
-            $keyLetter.classList.remove(['correct', 'incorrect', 'lack'])
+            $keyLetter.classList.remove('correct', 'incorrect', 'lack')
 
             $squareToVerify.classList.add('filled')
 
@@ -274,6 +275,44 @@ function initEvents () {
 
     $closeButton.addEventListener('click', () => {
         closeInformationModal()
+    })
+
+    $resetButton.addEventListener('click', () => {
+        resetGame()
+    })
+}
+
+async function resetGame () {
+    $actualSquare.classList.remove('active')
+    $actualSquare = null
+    actualRowIndex = 0
+    actualSquareIndex = 0
+    word = ""
+    isGameFinished = false
+    clearClassesFromMatrix()
+    clearClassesFromKeyboard()
+    await getRandomWord()
+    setSquare()
+}
+
+function clearClassesFromMatrix () {
+    const $children = Array.from($matrix.children)
+    $children.forEach((row) => {
+        const $squares = Array.from(row.children)
+        $squares.forEach((square) => {
+            square.innerText = ''
+            square.classList.remove('correct', 'incorrect', 'lack', 'filled')
+        })
+    })
+}
+
+function clearClassesFromKeyboard () {
+    const $children = Array.from($keyboard.children)
+    $children.forEach((row) => {
+        const $squares = Array.from(row.children)
+        $squares.forEach((square) => {
+            square.classList.remove('correct', 'incorrect', 'lack')
+        })
     })
 }
 
