@@ -30,13 +30,12 @@ let selectedWord = null
 let selectedWordDefinition = null
 let isGameFinished = false
 
-// Api to obtain words is dead 
 async function getRandomWord () {
     selectedWord = await getRandomWordFromApi()
     selectedWordDefinition = await getDefinitionOfRandomWord(selectedWord)
    
-    if (!selectedWord || !selectedWordDefinition) {
-        getRandomWordFromArray()    
+    if (!selectedWordDefinition) {
+        getRandomWord()
     }
 }
 
@@ -332,7 +331,7 @@ function clearClassesFromKeyboard () {
 }
 
 async function startGame () {
-    await getRandomWordFromArray()
+    await getRandomWord()
     drawRows(5)
     drawKeyboard()
     initEvents()
