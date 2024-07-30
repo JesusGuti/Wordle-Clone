@@ -153,7 +153,7 @@ function clickLetter (target) {
 
 function checkWord () {
     const selectedWordToArray = selectedWord.split('')
-    const wordToArray = word.split('')
+    const wordToArray = word.toLowerCase().split('')
     const actualRow = actualRowIndex
 
     // We should verify if the letters we put exists 
