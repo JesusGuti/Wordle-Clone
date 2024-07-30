@@ -102,7 +102,7 @@ function writeLetter (event) {
         word = word.slice(0,actualSquareIndex)
     } else if (key === 'Enter') {
         if (word.length === selectedWord.length) {
-            let doesWordExists = words.includes(word)
+            let doesWordExists = words.includes(word.toLowerCase())
 
             if (doesWordExists) {
                 checkWord()
@@ -132,7 +132,7 @@ function clickLetter (target) {
     } else if (key === 'ENTER') {
         if (word.length === selectedWord.length) {
             let doesWordExists = words.some((selected) => {
-                return selected.word === word 
+                return selected.word === word.toLowerCase()
             })
 
             if (doesWordExists) {
