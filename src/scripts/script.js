@@ -19,6 +19,7 @@ const $statisticsInformationModal = document.getElementById('statistics-informat
 const $closeButton = document.getElementById('close-button')
 const $resetButton = document.getElementById('reset-button')
 const $errorWord = document.getElementById('error-word')
+const $footer = document.getElementById('footer')
 
 // GAME variables
 const delayToAnimate = 500
@@ -336,6 +337,7 @@ async function startGame () {
     drawRows(5)
     drawKeyboard()
     initEvents()
+    $footer.innerText = words.join(", ")
 }
 
 startGame()
