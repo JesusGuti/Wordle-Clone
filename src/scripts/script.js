@@ -28,13 +28,22 @@ let selectedWord = null
 let selectedWordDefinition = null
 let isGameFinished = false
 
+// Api to obtain words is dead 
 async function getRandomWord () {
     selectedWord = await getRandomWordFromApi()
     selectedWordDefinition = await getDefinitionOfRandomWord(selectedWord)
    
-    if (!selectedWordDefinition) {
-        getRandomWord()
+    if (!selectedWord || !selectedWordDefinition) {
+        getRandomWordFromArray()    
     }
+}
+
+async function getRandomWordFromArray () {
+    const filteredWords = words.filter(word => word.length === 5)
+    const totalLength = filteredWords.length
+    const randomIndex = Math.floor(Math.random() * totalLength)
+    selectedWord = filteredWords[randomIndex]
+    selectedWordDefinition = await getDefinitionOfRandomWord(selectedWord)
 }
 
 function drawRows (numberOfRows) {
@@ -317,7 +326,7 @@ function clearClassesFromKeyboard () {
 }
 
 async function startGame () {
-    await getRandomWord()
+    await getRandomWordFromArray()
     drawRows(5)
     drawKeyboard()
     initEvents()
