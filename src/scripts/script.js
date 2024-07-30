@@ -3,7 +3,8 @@ import { words } from './words.js'
 import {
     showNotEnoughLettersAlert,
     showWordAlert,
-    showWordNotInTheListAlert
+    showWordNotInTheListAlert,
+    hideWordAlert
 } from './alerts.js'
 import {
     getRandomWordFromApi,
@@ -44,6 +45,7 @@ async function getRandomWordFromArray () {
     const randomIndex = Math.floor(Math.random() * totalLength)
     selectedWord = filteredWords[randomIndex]
     selectedWordDefinition = await getDefinitionOfRandomWord(selectedWord)
+    showWordAlert(selectedWord)
 }
 
 function drawRows (numberOfRows) {
@@ -298,6 +300,7 @@ async function resetGame () {
     actualSquareIndex = 0
     word = ""
     isGameFinished = false
+    hideWordAlert()
     clearClassesFromMatrix()
     clearClassesFromKeyboard()
     await getRandomWord()

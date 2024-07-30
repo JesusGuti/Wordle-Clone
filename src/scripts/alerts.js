@@ -4,6 +4,12 @@ export function showWordAlert (selectedWord) {
     $wordToShow.innerText = selectedWord.toUpperCase()
 }
 
+export function hideWordAlert () {
+    const $wordToShow = document.getElementById('word-display')
+    $wordToShow.style.display = 'none'
+    $wordToShow.innerText = ''
+}
+
 export function showNotEnoughLettersAlert () {
     const $notEnoughAlert = document.getElementById('not-enough')
     $notEnoughAlert.style.display = 'initial'
