@@ -18,6 +18,7 @@ const $statisticsButton = document.getElementById('statistics-button')
 const $statisticsInformationModal = document.getElementById('statistics-information-modal')
 const $closeButton = document.getElementById('close-button')
 const $resetButton = document.getElementById('reset-button')
+const $errorWord = document.getElementById('error-word')
 
 // GAME variables
 const delayToAnimate = 500
@@ -118,6 +119,7 @@ function writeLetter (event) {
             goNext()
         }
     }
+    $errorWord.innerText = word
 }
 
 function clickLetter (target) {
@@ -146,6 +148,7 @@ function clickLetter (target) {
         word = word + key
         goNext()
     }
+    $errorWord.innerText = word
 }
 
 function checkWord () {
