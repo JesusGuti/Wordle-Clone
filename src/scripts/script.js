@@ -18,7 +18,6 @@ const $statisticsButton = document.getElementById('statistics-button')
 const $statisticsInformationModal = document.getElementById('statistics-information-modal')
 const $closeButton = document.getElementById('close-button')
 const $resetButton = document.getElementById('reset-button')
-const $errorWord = document.getElementById('error-word')
 
 // GAME variables
 const delayToAnimate = 500
@@ -45,7 +44,6 @@ async function getRandomWordFromArray () {
     const randomIndex = Math.floor(Math.random() * totalLength)
     selectedWord = filteredWords[randomIndex]
     selectedWordDefinition = await getDefinitionOfRandomWord(selectedWord)
-    showWordAlert(selectedWord)
 }
 
 function drawRows (numberOfRows) {
@@ -118,7 +116,6 @@ function writeLetter (event) {
             goNext()
         }
     }
-    $errorWord.innerText = word
 }
 
 function clickLetter (target) {
@@ -130,9 +127,7 @@ function clickLetter (target) {
         word = word.slice(0,actualSquareIndex)
     } else if (key === 'ENTER') {
         if (word.length === selectedWord.length) {
-            let doesWordExists = words.some((selected) => {
-                return selected.word === word.toLowerCase()
-            })
+            let doesWordExists = words.includes(word.toLowerCase())
 
             if (doesWordExists) {
                 checkWord()
@@ -147,7 +142,6 @@ function clickLetter (target) {
         word = word + key
         goNext()
     }
-    $errorWord.innerText = word
 }
 
 function checkWord () {
@@ -305,7 +299,7 @@ async function resetGame () {
     hideWordAlert()
     clearClassesFromMatrix()
     clearClassesFromKeyboard()
-    await getRandomWord()
+    await getRandomWordFromArray()
     setSquare()
 }
 
@@ -331,7 +325,7 @@ function clearClassesFromKeyboard () {
 }
 
 async function startGame () {
-    await getRandomWord()
+    await getRandomWordFromArray()
     drawRows(5)
     drawKeyboard()
     initEvents()

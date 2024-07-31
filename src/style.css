@@ -226,7 +226,6 @@ main {
 }
 
 .word {
-    display: initial !important;
     top: 20vh;
 }
 
