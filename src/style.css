@@ -33,20 +33,23 @@ header {
     justify-content: center;
     display: flex;
     flex-direction: row;
+    position: relative;
+    min-height: 70px;
 
     & h1 {
         font-family: "NYTKarnakCondensed";
-        margin-left: 20px;
+        left: 50%;
+        position: absolute;
+        transform: translateX(-50%);
     }
 
     & div {
         display: flex;
-        right: -20vw;
-        position: relative;
+        right: 2%;
+        position: absolute;
         gap: 10px;
 
         & .statistics-button {
-            /* position: relative; */
             width: 30px;
             height: 30px;
             background-image: url('./icons/chart-bar-solid.svg');
@@ -57,7 +60,6 @@ header {
         }
         
         & .reset-button {
-            /* position: relative; */
             width: 30px;
             height: 30px;
             background-image: url('./icons/redo-solid.svg');
@@ -66,6 +68,12 @@ header {
             border: none;
             margin-top: 25px;
         }
+    }
+}
+
+@media (height >= 768px) {
+    header {
+        margin-bottom: 50px;
     }
 }
 
@@ -189,8 +197,15 @@ main {
 
         @media (max-width: 768px) {
             & .key {
-                width: 7vw;
-                height: 8vh;
+                width: 2.5rem;
+                height: 3.5rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            & .key {
+                width: 28px;
+                height: 50px;
             }
         }
 
@@ -255,6 +270,11 @@ main {
     position: fixed;
     z-index: 3;
     padding-top: 50px;
+
+    & h3 {
+        font-family: "NYTKarnakCondensed";
+        font-weight: 100;
+    } 
 
     & .close-button {
         margin-inline-start: auto;
