@@ -1,4 +1,15 @@
-@import url(https://db.onlinewebfonts.com/c/4789cf828c01b22acb9b2b73ee91aa0d?family=NYTKarnakCondensed);
+@font-face{
+    font-family: "NYTKarnakCondensed";
+    src: url("http://db.onlinewebfonts.com/t/4789cf828c01b22acb9b2b73ee91aa0d.eot");
+    src: url("http://db.onlinewebfonts.com/t/4789cf828c01b22acb9b2b73ee91aa0d.eot?#iefix")format("embedded-opentype"),
+        url("http://db.onlinewebfonts.com/t/4789cf828c01b22acb9b2b73ee91aa0d.woff")format("woff"),
+        url("http://db.onlinewebfonts.com/t/4789cf828c01b22acb9b2b73ee91aa0d.woff2")format("woff2"),
+        url("http://db.onlinewebfonts.com/t/4789cf828c01b22acb9b2b73ee91aa0d.ttf")format("truetype"),
+        url("http://db.onlinewebfonts.com/t/4789cf828c01b22acb9b2b73ee91aa0d.svg#NYTKarnakCondensed")format("svg");
+    font-weight:normal;
+    font-style:normal;
+    font-display:swap;
+}
 
 :root {
     --black: #121213;
