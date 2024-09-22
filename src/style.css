@@ -226,17 +226,14 @@ main {
 
 .correct {
     background-color: var(--green) !important;
-    border: none !important;
 }
 
 .incorrect {
     background-color: var(--yellow) !important;
-    border: none !important;
 }
 
 .lack {
     background-color: var(--gray) !important;
-    border: none !important;
 }
 
 .word, .not-enough, .not-list {
